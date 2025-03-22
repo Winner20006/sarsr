@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide-in On Scroll Animations</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        .slide-from-left {
+            transform: translateX(-100px);
+        }
+
+        .slide-from-right {
+            transform: translateX(100px);
+        }
+
+        .slide-from-bottom {
+            transform: translateY(100px);
+        }
+
+        .slide-in {
+            opacity: 1;
+            transform: translate(0);
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .spacer {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #718096;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Slide-in On Scroll Animations</h1>
+        <p>Scroll down to see elements animate as they enter the viewport</p>
+    </header>
+
+    <div class="spacer">Scroll down to see animations</div>
+
+    <section>
+        <div class="container">
+            <div class="card slide-from-bottom" data-animate>
+                <h2>Slide from Bottom</h2>
+                <p>This element slides up from the bottom as it enters the viewport.</p>
+                <p>The animation is triggered when the element becomes visible during scrolling.</p>
+            </div>
+
+            <div class="card slide-from-left" data-animate>
+                <h2>Slide from Left</h2>
+                <p>This element slides in from the left side of the screen.</p>
+                <p>Different directions create visual interest as the user scrolls down the page.</p>
+            </div>
+
+            <div class="card slide-from-right" data-animate>
+                <h2>Slide from Right</h2>
+                <p>This element slides in from the right side of the screen.</p>
+                <p>Alternating directions can create a dynamic reading experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="spacer">Keep scrolling</div>
+
+    <section>
+        <div class="container">
+            <div class="card slide-from-bottom" data-animate>
+                <h2>Another Element</h2>
+                <p>You can add the data-animate attribute to any element you want to animate.</p>
+                <p>The JavaScript will automatically detect these elements and animate them.</p>
+            </div>
+
+            <div class="card slide-from-left" data-animate>
+                <h2>Customizable</h2>
+                <p>You can easily customize the animation duration, delay, and easing in the CSS.</p>
+                <p>You can also create additional animation classes for different effects.</p>
+            </div>
+
+            <div class="card slide-from-right" data-animate>
+                <h2>How to Use</h2>
+                <p>1. Add the data-animate attribute to elements you want to animate</p>
+                <p>2. Apply one of the slide-from-* classes to set the animation direction</p>
+                <p>3. The JavaScript will handle the rest!</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('[data-animate]');
+            
+            // Initial check for elements in viewport on page load
+            checkElementsInViewport();
+            
+            // Check elements on scroll
+            window.addEventListener('scroll', checkElementsInViewport);
+            
+            function checkElementsInViewport() {
+                animatedElements.forEach(element => {
+                    if (isElementInViewport(element) && !element.classList.contains('slide-in')) {
+                        element.classList.add('slide-in');
+                    }
+                });
+            }
+            
+            function isElementInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                
+                // Element is considered in viewport when it's top is below 20% of the screen
+                // and its bottom is above 80% of the screen
+                const topThreshold = windowHeight * 0.2;
+                const bottomThreshold = windowHeight * 0.8;
+                
+                return (
+                    rect.top <= bottomThreshold &&
+                    rect.bottom >= topThreshold
+                );
+            }
+        });
+    </script>
+</body>
+</html>

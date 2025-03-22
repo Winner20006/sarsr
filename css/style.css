@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+@import url(./style.js);
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulsee {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  background-color: #1a1a2e;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #4facfe;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+  box-shadow: 0 0 30px #4facfe;
+}
+.card__image-container {
+  position: relative;
+  overflow: hidden;
+}
+.card__image-container::before, 
+.card__image-container::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  align-items: center; 
+  justify-content: center;
+  width: 200%;
+  height: 200%;
+  /* background: conic-gradient(
+    from 0deg,
+    rgba(200, 44, 44, 0.4) 0deg 90deg,  
+    rgba(79, 172, 254, 0.6) 90deg 180deg, 
+    rgba(0, 242, 254, 0.6) 180deg 270deg, 
+    rgba(198, 7, 7, 0.4) 270deg 360deg  
+); */
+background:var(--random-gradient);
+
+
+  animation: rotateGradient 1s linear infinite, fadeOut 1s 1s forwards; /* Continuous rotation + fade-out */
+  opacity: 1;
+}
+
+@keyframes rotateGradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg); /* Rotate the gradient 360 degrees */
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1); /* Start at normal size */
+  }
+  50% {
+    opacity: 0.5; /* Midpoint where opacity starts to fade */
+    transform: scale(1.05); /* Slightly enlarge the element for a more dynamic effect */
+  }
+  75% {
+    opacity: 0; /* Fully faded out */
+    transform: scale(1.1); /* Optional: Final scale for visual effect */
+  }
+  100% {
+    opacity: 0; /* Fully faded out */
+    transform: scale(1.1); /* Optional: Final scale for visual effect */
+  }
+}
+
+
+
+.card__image-container::after {
+  filter: blur(20px);
+}
+.card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+.card__image:hover {
+  transform: scale(1.1);
+}
+.card__content {
+  padding: 20px;
+  position: relative;
+  background: rgba(26, 26, 46, 0.8);
+  backdrop-filter: blur(10px);
+  transform: translateY(50%);
+  transition: transform 0.3s ease;
+}
+.card:hover .card__content {
+  transform: translateY(0);
+}
+.card-title {
+  color: #ffffff;
+  margin-top: 0;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+}
+.card__description {
+  color: #cccccc;
+  font-size: 0.9em;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease 0.1s;
+}
+.card:hover .card__description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 320px) {
+  .card {
+    width: 90%;
+  }
+}
