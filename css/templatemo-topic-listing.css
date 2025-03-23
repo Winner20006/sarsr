@@ -687,7 +687,7 @@ strong {
   overflow: hidden;
   padding: 30px;
   transition: all 0.3s ease;
-  height: 350px !important;
+  height: 100% !important;
   width: 355.987px;
   margin-top: 20px; 
   margin-bottom: 20px;
