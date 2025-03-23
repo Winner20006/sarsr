@@ -8,7 +8,7 @@
     border-radius: 10px; /* Rounded corners */
     cursor: pointer;
     overflow: hidden;
-    min-width: 250px;
+    width: 250px;
     height: 70px;
     transition: all 0.3s ease;
 }
@@ -17,9 +17,6 @@
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
-
-
-
 
 
 .wave-button1 {
@@ -63,6 +60,27 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+
+.wave-button3 {
+    position: relative;
+    font-size: 20px; /* Increased font size */
+    font-weight: bold;
+    color: white !important;
+    background-color: #4e7587;
+    border: none;
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer;
+    overflow: hidden;
+    width: 250px;
+    height: 90px;
+    transition: all 0.3s ease;
+}
+
+.wave-button3:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
 /* Media query for screens UNDER 992px */
 @media (max-width: 991.98px) {
     .wave-button-w {
@@ -74,6 +92,24 @@
         width: 300px !important; /* Adjust width for smaller screens */
         height: 90px !important;
 
+    }
+
+
+    .wave-button-a {
+        display: flex; /* Make the anchor a flex container */
+        justify-content: center; /* Center the button horizontally */
+        align-items: center; /* Center the button vertically */
+        height: 70px !important; /* Keep the height fixed */
+        text-decoration: none; /* Remove underline from anchor */
+        width: 220px !important; /* Adjust width for smaller screens */
+
+    }
+    
+    .wave-button {
+        width: 220px !important; /* Adjust width for smaller screens */
+        height: 70px !important; /* Keep the height fixed */
+
+        
     }
 }
 
@@ -96,6 +132,27 @@
     }
     
     .wave-button1:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    } 
+
+    .wave-button3 {
+        position: relative;
+        font-size: 20px; /* Increased font size */
+        font-weight: bold;
+        color: white !important;
+        background-color: #4e7587;
+        border: none;
+        border-radius: 10px; /* Rounded corners */
+        cursor: pointer;
+        overflow: hidden;
+        height: 90px;
+        transition: all 0.3s ease;
+        margin-top: 35px;
+        width: 220px !important;
+    }
+    
+    .wave-button3:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     } 
@@ -144,6 +201,12 @@
 }
 
 .button-text {
+    position: relative;
+    z-index: 2;
+    font-size: 0.8em !important;
+}
+
+.button-text3 {
     position: relative;
     z-index: 2;
 }
