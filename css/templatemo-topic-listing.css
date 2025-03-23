@@ -120,6 +120,7 @@ h6 {
   color: #7dbcd9;
   font-weight: 700;
   font-size: 20px ;
+
 }
 }
 
@@ -1223,6 +1224,8 @@ blockquote {
     font-size: 3.5rem ;
 }
 
+
+
 .h1-hero{ 
   font-size: 4rem !important
 }
@@ -1314,6 +1317,10 @@ p {
   .subscribe-form-wrap {
     padding-top: 30px;
     padding-bottom: 0;
+  }
+
+  .no-mr-tp{
+    margin-top: 0px !important;
   }
 }
 
