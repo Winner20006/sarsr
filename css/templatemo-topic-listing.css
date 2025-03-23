@@ -1541,6 +1541,7 @@ p {
     font-family: var(--body-font-family) !important;
     color:  #22333b !important;
     font-weight: var(--font-weight-normal) !important;
+    font-size: 1em !important;
 
   }
 
