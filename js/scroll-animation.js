@@ -69,3 +69,49 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(counter);
   });
 });
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Select all animated elements (both slide and fade)
+  const animatedElements = document.querySelectorAll('.fade-in');
+
+  // Function to check if element is in viewport
+  const isElementInViewport = (element) => {
+      const rect = element.getBoundingClientRect();
+      return (
+          rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.bottom >= 0
+      );
+  };
+
+  // Function to activate animations
+  const checkElementsInViewport = () => {
+      animatedElements.forEach((element) => {
+          if (isElementInViewport(element)) {
+              // For slide animations
+              if (element.hasAttribute('data-animate') && !element.classList.contains('slide-in')) {
+                  element.classList.add('slide-in');
+              }
+              // For fade-in animations
+              if (element.classList.contains('fade-in') && !element.classList.contains('active')) {
+                  element.classList.add('active');
+              }
+          }
+      });
+  };
+
+  // Initial check
+  checkElementsInViewport();
+
+  // Scroll event listener
+  window.addEventListener('scroll', checkElementsInViewport);
+});
+
+// Keep your existing counter animation code unchanged
+document.addEventListener('DOMContentLoaded', function() {
+  const counters = document.querySelectorAll('.number');
+  // ... (rest of your counter code remains the same)
+});

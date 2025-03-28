@@ -1,288 +1,300 @@
 
 .timeline {
-    position: relative;
-    margin: 4rem auto;
+  position: relative;
+  margin: 4rem auto;
+}
+
+.timeline::after {
+content: '▼'; /* Arrow symbol (can also use '▾' or '⤓') */
+position: absolute;
+bottom: -1.5rem; /* Adjust distance from the line */
+left: 50%;
+transform: translateX(-50%);
+font-size: 2rem;
+color: var(--secondary-color); /* Match your timeline color */
 }
 
 /* Timeline center line */
 .timeline::before {
-    content: '';
-    position: absolute;
-    width: 6px;
-    background-color: var(--secondary-color);
-    top: 0;
-    bottom: 0;  
-    left: 50%;
-    margin-left: -3px;
-    border-radius: 6px;
-    opacity: 0.6; 
-    height: 100%;
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: var(--secondary-color);
+  top: 0;
+  bottom: 0;  
+  left: 50%;
+  margin-left: -3px;
+  border-radius: 6px;
+  opacity: 0.6; 
+  height: 100%;
 }
 
 @media screen and (min-width: 992px) {
-  .navbar .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    margin-top: 0;
-    pointer-events: auto;
-  }
+.navbar .dropdown:hover .dropdown-menu {
+  opacity: 1;
+  margin-top: 0;
+  pointer-events: auto;
+}
 
- 
+
 }
 
 @media (max-width: 1200px) {
 
-  .center-div-nav{ 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-  }
-  
-  .nav-marj{ 
-    margin-bottom: 5px !important; 
-  }
-  
-  .nav-marj-size{ 
-    font-size: 20px !important;
-  
-  } }
+.center-div-nav{ 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
+
+.nav-marj{ 
+  margin-bottom: 5px !important; 
+}
+
+.nav-marj-size{ 
+  font-size: 20px !important;
+
+} }
 
 
 
 .year-marker {
-    position: relative;
-    width: 100%;
-    margin-bottom: 100px;
-    opacity: 0;
-    transform: translateY(30px);
-    
+  position: relative;
+  width: 100%;
+  margin-bottom: 100px;
+  opacity: 0;
+  transform: translateY(30px);
+  
 }
 
 .year-marker.visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .year-bubble {
-    position: absolute;
-    width: 140px;
-    height: 140px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 2.2rem;
-    font-weight: bold;
-    box-shadow: var(--shadow);
-    z-index: 2;
-    
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.2rem;
+  font-weight: bold;
+  box-shadow: var(--shadow);
+  z-index: 2;
+  
 }
 
 .year-bubble:hover {
-    transform: translateX(-50%) scale(1.1); /* Scale while maintaining the centered position */
-    background-color: #4e7587;
-    transform-origin: center; /* Ensures it scales from the middle */
+  transform: translateX(-50%) scale(1.1); /* Scale while maintaining the centered position */
+  background-color: #4e7587;
+  transform-origin: center; /* Ensures it scales from the middle */
 }
 @keyframes bubbleHover {
 
-    50% {
-        transform: translateX(-50%) scale(1.05); /* Scale up further */
-        background-color: #557f91; /* Intermediate color */
-        opacity: 0.5;
-    }
+  50% {
+      transform: translateX(-50%) scale(1.05); /* Scale up further */
+      background-color: #557f91; /* Intermediate color */
+      opacity: 0.5;
+  }
 
-    100% {
-        transform: translateX(-50%) scale(1.1); /* Scale up to 110% */
-        background-color: #5c8a9f; /* Final color */
-        opacity: 1;
+  100% {
+      transform: translateX(-50%) scale(1.1); /* Scale up to 110% */
+      background-color: #5c8a9f; /* Final color */
+      opacity: 1;
 
-    }
+  }
 }
 
 .journey-card {
-    position: relative;
-    width: 45%;
-    padding: 2.5rem;
-    background: var(--card-bg);
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    margin-top: 4rem;
-    opacity: 0;
-    transform: translateX(-30px); 
-    
+  position: relative;
+  width: 45%;
+  padding: 2.5rem;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  margin-top: 4rem;
+  opacity: 0;
+  transform: translateX(-30px); 
+  
 }
 
 .journey-card.visible {
-    opacity: 1;
-    transform: translateX(0);
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* Left side cards */
 .journey-card.left {
-    left: 0;
+  left: 0;
 }
 
 /* Right side cards */
 .journey-card.right {
-    left: 55%;
-    transform: translateX(30px);
+  left: 55%;
+  transform: translateX(30px);
 }
 
 .journey-card.right.visible {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 
 @media (max-width: 768px) {
-    /* Timeline center line */
-    .timeline::before {
-        left: calc(100% - 40px); /* Move the line to the right */
-    }
+  /* Timeline center line */
+  .timeline::before {
+      left: calc(100% - 40px); /* Move the line to the right */
+  }
 
-    /* Year bubble */
-    .year-bubble {
-        left: calc(100% - 40px); /* Align with the timeline line */
-        width: 100px;
-        height: 100px;
-        font-size: 1.6rem;
-        transform: translateX(-50%); /* Center the bubble relative to the line */
-    }
+  .timeline::after {
+    content: '▼'; /* Arrow symbol (can also use '▾' or '⤓') */
+    position: absolute;
+    bottom: -1.5rem; /* Adjust distance from the line */
+    left: calc(100% - 40px); /* Move the line to the right */
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: var(--secondary-color); /* Match your timeline color */
+  }
 
-    /* Journey cards */
-    .journey-card {
-        width: calc(100% - 100px); /* Full width minus space for the timeline */
-        margin-left: 0; /* Reset margin */
-        margin-right: 100px; /* Push cards to the left of the timeline */
-        padding: 1.8rem;
-    }
+  /* Year bubble */
+  .year-bubble {
+      left: calc(100% - 40px); /* Align with the timeline line */
+      width: 100px;
+      height: 100px;
+      font-size: 1.6rem;
+      transform: translateX(-50%); /* Center the bubble relative to the line */
+  }
 
-    /* Left and right cards */
-    .journey-card.left,
-    .journey-card.right {
-        left: 0; /* Reset left positioning */
-        transform: translateX(0); /* Reset transform */
-    }
+  /* Journey cards */
+  .journey-card {
+      width: calc(100% - 100px); /* Full width minus space for the timeline */
+      margin-left: 0; /* Reset margin */
+      margin-right: 100px; /* Push cards to the left of the timeline */
+      padding: 1.8rem;
+  }
 
-    /* Visible state for cards */
-    .journey-card.visible {
-        transform: translateX(0); /* Bring cards into view */
-    }
+  /* Left and right cards */
+  .journey-card.left,
+  .journey-card.right {
+      left: 0; /* Reset left positioning */
+      transform: translateX(0); /* Reset transform */
+  }
+
+  /* Visible state for cards */
+  .journey-card.visible {
+      transform: translateX(0); /* Bring cards into view */
+  }
 }
 
 
 
 
-  /* Card container */
-  .card {
-    position: relative;
-    max-width: 32rem;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 0.75rem;
-    background-color: white;
-    box-shadow: #b6c9d1;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+.card {
+position: relative;
+max-width: 32rem;
+width: 100%;
+overflow: hidden;
+border-radius: 0.75rem;
+background-color: white;
+box-shadow: none !important; /* Force no shadow anywhere */
+outline: none !important; /* Remove focus outlines */
+filter: none !important; /* Disable any filters (e.g., blur, drop-shadow) */
+}
 
-  @media (prefers-color-scheme: dark) {
-    .card {
-      background-color: #b6c9d1;
-    }
-  }
+@media (prefers-color-scheme: dark) {
+.card {
+  background-color: #b6c9d1;
+}
+}
 
-  .card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  }
+.card:hover {
+transform: scale(1.02);
+box-shadow: none !important; /* No shadow on hover */
+}
 
-  .card:active {
-    transform: scale(0.98);
-  }
+.card:active {
+transform: scale(0.98);
+box-shadow: none !important; /* No shadow on click */
+}
 
-  /* Gradient overlay */
-  .card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(79, 70, 229, 0.2), rgba(79, 70, 229, 0.1));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
+.card::before {
+content: '';
+position: absolute;
+inset: 0;
+opacity: 0;
+background: transparent;
+transition: opacity 0.3s ease;
+box-shadow: none !important; /* No shadow in pseudo-element */
+}
 
-  .card:hover::before {
-    opacity: 1;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+.card-content {
+position: relative;
+z-index: 10;
+padding: 1.5rem;
+}
 
-  }
-
-  /* Card content */
+@media (min-width: 768px) {
   .card-content {
-    position: relative;
-    z-index: 10;
-    padding: 1.5rem;
+    padding: 2rem;
   }
+}
 
-  @media (min-width: 768px) {
-    .card-content {
-      padding: 2rem;
-    }
-  }
+/* Text styles */
+.main-text {
+  text-align: right;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
 
-  /* Text styles */
+@media (min-width: 768px) {
   .main-text {
-    text-align: right;
-    font-size: 1.25rem;
-    line-height: 1.75;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    color: #1e293b;
+    font-size: 1.5rem;
   }
+}
 
-  @media (min-width: 768px) {
-    .main-text {
-      font-size: 1.5rem;
-    }
+@media (prefers-color-scheme: dark) {
+  .main-text {
+    color: #f1f5f9;
   }
+}
 
-  @media (prefers-color-scheme: dark) {
-    .main-text {
-      color: #f1f5f9;
-    }
-  }
+/* Contact link */
+.contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  font-weight: 500;
+  color:  #7dbcd9;
+  transition: transform 0.2s ease;
+}
 
-  /* Contact link */
-  .contact-link {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 0.5rem;
-    font-weight: 500;
-    color: #4f46e5;
-    transition: transform 0.2s ease;
-  }
+/* Arrow icon */
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
 
-  /* Arrow icon */
-  .arrow-icon {
-    width: 16px;
-    height: 16px;
-    transition: transform 0.2s ease;
-  }
-
-  /* Bottom border */
-  .bottom-border {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(to right, #4f46e5, rgba(79, 70, 229, 0.7));
-  }
+/* Bottom border */
+.bottom-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color:  #22333b;
+}
 
 
 
 
-  
