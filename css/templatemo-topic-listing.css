@@ -593,34 +593,40 @@ strong {
 } */
 
 
-/* Default styles (applies to all screens) */
 .about-me {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  filter: grayscale(0) !important;
+  transform: translate3d(0, 0, 0);
+}
+
+.about-me::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: url(../images/about-bg.jpg);
   background-size: cover;
   background-position: bottom center;
   background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
-  overflow: hidden;
-  filter: grayscale(0) !important;
+  z-index: -1;
 }
 
-/* Adjustments for mobile (e.g., smaller screens) */
 @media (max-width: 768px) {
   .about-me {
-      background-attachment: scroll; /* 'fixed' can cause issues on mobile */
-      background-position: center center; /* Adjust if bottom alignment looks weird */
-      padding: 10px; /* Reduce padding on small screens */
+    padding: 10px;
   }
-}
-
-/* Fallback for older browsers */
-@supports not (min-height: 100vh) {
-  .about-me {
-      height: 100vh;
+  .about-me::before {
+    position: absolute;
+    background-position: center center;
   }
 }
 
