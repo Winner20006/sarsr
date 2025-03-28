@@ -1508,6 +1508,12 @@ p {
   transform: translate(-50%, -50%) scale(1);
 }
 
+@media (max-width: 320px) {
+  .no-mr-mr{
+    margin-right: 0px !important;
+  }
+
+}
 
 
 @media (max-width: 767.98px) {
