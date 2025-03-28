@@ -20,6 +20,7 @@
 html, body {
   margin: 0 auto !important;
   overflow-x: hidden !important;
+  scroll-behavior: smooth !important;
 }
 :root {
   --white-color:                  #ffffff;
