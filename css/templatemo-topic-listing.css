@@ -578,18 +578,50 @@ strong {
 } 
 
 
-.about-me {
+/* .about-me {
   background-image: url(../images/BG/BG/sari-about-changed-bg.jpg);
-  background-size: 100% auto; /* Stretch horizontally, maintain aspect ratio */
-  background-position: bottom center; /* Align to the bottom */
+  background-size: 100% auto; 
+  background-position: bottom center; 
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; /* Adjust height as needed */
+  min-height: 100vh; 
   padding: 20px;
   overflow: hidden; 
   filter: grayscale(0) !important;
  
+} */
+
+
+/* Default styles (applies to all screens) */
+.about-me {
+  background-image: url(../images/about-bg.jpg);
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  overflow: hidden;
+  filter: grayscale(0) !important;
+}
+
+/* Adjustments for mobile (e.g., smaller screens) */
+@media (max-width: 768px) {
+  .about-me {
+      background-attachment: scroll; /* 'fixed' can cause issues on mobile */
+      background-position: center center; /* Adjust if bottom alignment looks weird */
+      padding: 10px; /* Reduce padding on small screens */
+  }
+}
+
+/* Fallback for older browsers */
+@supports not (min-height: 100vh) {
+  .about-me {
+      height: 100vh;
+  }
 }
 
 @media (max-width: 992px){ 
@@ -1586,19 +1618,19 @@ p {
 
 
 
-  .about-me {
+  /* .about-me {
     background-image: url(../images/about-bg.jpg);
-    background-size: cover; /* Stretch horizontally, maintain aspect ratio */
-    background-position: bottom center; /* Align to the bottom */
+    background-size: cover; 
+    background-position: bottom center; 
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100% !important; /* Adjust height as needed */
+    min-height: 100% !important; 
     padding: 20px; 
     overflow: hidden;  
     filter: grayscale(0) !important;
 
-  }
+  } */
 
   .sari-image-fix{
     width: 100% !important; 
