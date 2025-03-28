@@ -578,56 +578,18 @@ strong {
 } 
 
 
-/* .about-me {
+.about-me {
   background-image: url(../images/BG/BG/sari-about-changed-bg.jpg);
-  background-size: 100% auto; 
-  background-position: bottom center; 
+  background-size: 100% auto; /* Stretch horizontally, maintain aspect ratio */
+  background-position: bottom center; /* Align to the bottom */
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; 
+  min-height: 100vh; /* Adjust height as needed */
   padding: 20px;
   overflow: hidden; 
   filter: grayscale(0) !important;
  
-} */
-
-
-.about-me {
-  position: relative;
-  overflow: hidden;
-  min-height: 100vh;
-  min-height: calc(var(--vh, 1vh) * 100);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  filter: grayscale(0) !important;
-  transform: translate3d(0, 0, 0);
-}
-
-.about-me::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url(../images/about-bg.jpg);
-  background-size: cover;
-  background-position: bottom center;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
-
-@media (max-width: 768px) {
-  .about-me {
-    padding: 10px;
-  }
-  .about-me::before {
-    position: absolute;
-    background-position: center center;
-  }
 }
 
 @media (max-width: 992px){ 
@@ -1624,19 +1586,19 @@ p {
 
 
 
-  /* .about-me {
+  .about-me {
     background-image: url(../images/about-bg.jpg);
-    background-size: cover; 
-    background-position: bottom center; 
+    background-size: cover; /* Stretch horizontally, maintain aspect ratio */
+    background-position: bottom center; /* Align to the bottom */
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100% !important; 
+    min-height: 100vh !important; /* Adjust height as needed */
     padding: 20px; 
     overflow: hidden;  
     filter: grayscale(0) !important;
 
-  } */
+  }
 
   .sari-image-fix{
     width: 100% !important; 
